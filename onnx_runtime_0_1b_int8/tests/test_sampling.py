@@ -1,8 +1,40 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 
-from arktts_runtime.runtime import ArkTtsRuntime, _sample
+from arktts_runtime import runtime
+from arktts_runtime.runtime import ArkTtsRuntime, _execution_providers, _sample
+
+
+def test_execution_providers_defaults_to_cpu(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("ARKTTS_EXECUTION_PROVIDER", raising=False)
+    assert _execution_providers() == ["CPUExecutionProvider"]
+
+
+def test_execution_providers_selects_cuda(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("ARKTTS_EXECUTION_PROVIDER", "cuda")
+    monkeypatch.setenv("ARKTTS_CUDA_DEVICE_ID", "1")
+    monkeypatch.setattr(
+        runtime.ort,
+        "get_available_providers",
+        lambda: ["CUDAExecutionProvider", "CPUExecutionProvider"],
+    )
+    assert _execution_providers() == [
+        ("CUDAExecutionProvider", {"device_id": 1}),
+        "CPUExecutionProvider",
+    ]
+
+
+def test_execution_providers_rejects_missing_cuda(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("ARKTTS_EXECUTION_PROVIDER", "cuda")
+    monkeypatch.setattr(
+        runtime.ort, "get_available_providers", lambda: ["CPUExecutionProvider"]
+    )
+    with pytest.raises(RuntimeError, match="CUDAExecutionProvider"):
+        _execution_providers()
 
 
 def test_sample_uses_gumbel_max_noise() -> None:

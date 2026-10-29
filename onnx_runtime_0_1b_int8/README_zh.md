@@ -42,6 +42,16 @@ hf download Audio8/audio8-TTS-0.1B-ONNX-INT8 --local-dir model
 模型文件放在本目录的 `model/` 下。`registration/` 下的 encoder 是可选的，
 只在从音频注册新音色时需要。默认音色脚本只读取 `reference_codes.npy`。
 
+默认使用 CPU。CUDA 12.x 和 cuDNN 9 服务器可改用 `requirements-gpu.txt`
+创建环境，并通过以下环境变量启用 GPU：
+
+```bash
+ARKTTS_EXECUTION_PROVIDER=cuda ARKTTS_CUDA_DEVICE_ID=0 bash run_server.sh
+```
+
+如果 ONNX Runtime 没有提供 `CUDAExecutionProvider`，CUDA 模式会在启动时
+直接报错，不会静默地让整个模型回退到 CPU。
+
 ## 命令行推理
 
 ```bash
