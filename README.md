@@ -34,8 +34,6 @@
 
 **Audio8-TTS-Realistic-0.6B** builds on Preview with substantially improved speech realism, retaining the same compact 0.6B architecture and zero-shot voice cloning. It supports **23 languages**, adding **12 languages compared with Preview**.
 
-Audio8 is also participating in [TTS Arena](https://tts-agi-tts-arena-v2.hf.space/), where it has received encouraging ratings from listeners. We are grateful to everyone who has listened and voted.
-
 | Release | Focus and languages | Model | Listen | Guide |
 |---|---|---|---|---|
 | **Realistic 0.6B** | Realism and prosody · 23 languages | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [Details](guides/models/realistic-0.6b.md) |
