@@ -87,9 +87,17 @@ The equivalent Windows command is:
   --output outputs\test.wav
 ```
 
-Set `ARKTTS_MODEL_DIR` or `ARKTTS_VOICES_DIR` to use another location. The
-runtime always selects `CPUExecutionProvider`; GPU execution is outside the
-scope of this export.
+Set `ARKTTS_MODEL_DIR` or `ARKTTS_VOICES_DIR` to use another location. CPU is
+the default execution provider. On a CUDA 12.x and cuDNN 9 host, create the
+environment with `requirements-gpu.txt` and start with:
+
+```bash
+ARKTTS_EXECUTION_PROVIDER=cuda ARKTTS_CUDA_DEVICE_ID=0 bash run_server.sh
+```
+
+CUDA mode fails during startup when `CUDAExecutionProvider` is unavailable,
+instead of silently running the full model on CPU. ONNX nodes unsupported by
+the CUDA provider may still use ONNX Runtime's normal per-node CPU fallback.
 
 ## Local HTTP service
 
