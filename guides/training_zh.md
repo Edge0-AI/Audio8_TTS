@@ -5,7 +5,7 @@
 从仓库根目录执行，并显式选择需要微调的版本。
 
 ```bash
-export MODEL=Edge0/Audio8-TTS-Realistic-0.6b
+export MODEL=Edge0/Audio8-TTS-Realistic-Air
 # Preview 0.6B: export MODEL=Edge0/Audio8-TTS-Preview-0.6b
 # Preview 0.1B: export MODEL=Edge0/Audio8-TTS-Preview-0.1b
 ```
@@ -14,7 +14,7 @@ Trainer 根据所选模型的输出头适配 slow loss：
 
 | 模型 | Slow loss 目标 | Gradient checkpointing |
 | --- | --- | --- |
-| Realistic / Preview 0.6B | 完整词表中的 token ID，包含 EOS | 保持关闭；已发布模型不支持此功能 |
+| Realistic Air / Preview 0.6B | 完整词表中的 token ID，包含 EOS | 保持关闭；已发布模型不支持此功能 |
 | Preview 0.1B | Semantic 类别 0–4095，EOS 类别 4096；其余 token 忽略 | 默认关闭，可显式开启 |
 
 该映射仅用于 slow loss 和 accuracy。模型输入保留原始 token ID，fast codebook 目标保持不变。

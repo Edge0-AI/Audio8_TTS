@@ -4,11 +4,11 @@
 
 | 版本 | Transformers / CLI | SGLang Omni | ONNX |
 |---|---|---|---|
-| Realistic 0.6B | 支持 | 0.6B 配置 | 暂无制品 |
+| Realistic Air | 支持 | 0.6B 配置 | 暂无制品 |
 | Preview 0.6B | 支持 | 0.6B 配置 | INT4，onnx_runtime/ |
 | Preview 0.1B | 支持 | 0.1B hybrid 配置 | INT8，onnx_runtime_0_1b_int8/ |
 
-Realistic 沿用 0.6B 配置，只需显式选择新版模型 ID 或本地目录。ONNX 导出属于表中列出的各自版本，不能将 Preview ONNX 当成 Realistic 权重。
+Realistic Air 沿用 0.6B 配置，只需显式选择新版模型 ID 或本地目录。ONNX 导出属于表中列出的各自版本，不能将 Preview ONNX 当成 Realistic Air 权重。
 
 ## SGLang Omni 服务部署
 
@@ -31,7 +31,7 @@ paged attention、动态 batching、Fast AR 固定 KV cache、参考音频编码
 
 ### 性能
 
-现有 SGLang 性能数据与原测试条件如下；Realistic 与 Preview 0.6B 架构和服务路径相同，继续适用。此处不将其写作新版重新测量的数据。0.1B 的 eager 混合路径见本页独立小节。
+现有 SGLang 性能数据与原测试条件如下；Realistic Air 与 Preview 0.6B 架构和服务路径相同，继续适用。此处不将其写作新版重新测量的数据。0.1B 的 eager 混合路径见本页独立小节。
 
 单流 warm latency 在单张 NVIDIA H20 上测试，使用 BF16、CUDA Graph、greedy decoding，
 并生成 128 帧。输出 WAV 时长为 5.85-5.94 秒，不包含冷启动和编译时间。RTF 越低越好。
@@ -50,7 +50,7 @@ paged attention、动态 batching、Fast AR 固定 KV cache、参考音频编码
 
 ```bash
 export SGLANG_OMNI_ROOT=/opt/sglang-omni
-export MODEL_ID=Edge0/Audio8-TTS-Realistic-0.6b
+export MODEL_ID=Edge0/Audio8-TTS-Realistic-Air
 # Preview 0.6B: export MODEL_ID=Edge0/Audio8-TTS-Preview-0.6b
 export MODEL="./model/${MODEL_ID##*/}"
 

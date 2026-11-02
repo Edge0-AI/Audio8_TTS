@@ -24,37 +24,37 @@
 
 <div align="center">
 
-<img src="assets/readme-06b-zh.svg" alt="Audio8-TTS-Realistic — 更真实的语音。更广的语言覆盖。依然只有 0.6B。" width="960">
+<img src="assets/readme-06b-zh.svg" alt="Audio8-TTS-Realistic-Air — 更真实的语音。更广的语言覆盖。依然只有 0.6B。" width="960">
 
-[![Model](assets/badges/huggingface-realistic-06b.svg)](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b)
+[![Model](assets/badges/huggingface-realistic-06b.svg)](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air)
 [![Demo](assets/badges/demo.svg)](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
 [![arXiv](assets/badges/arxiv.svg)](https://arxiv.org/abs/2610.14776)
 
 </div>
 
-**Audio8-TTS-Realistic-0.6B** 在 Preview 基础上显著提升语音拟真感，保留相同的 0.6B 架构和零样本音色克隆能力。支持 **23 种语言**，相较 Preview 新增 **12 种**。
+**Audio8-TTS-Realistic-Air** 在 Preview 基础上显著提升语音拟真感，保留相同的 0.6B 架构和零样本音色克隆能力。支持 **23 种语言**，相较 Preview 新增 **12 种**。
 
 Audio8 也参与了 [TTS Arena](https://tts-agi-tts-arena-v2.hf.space/)，目前收到的听众评分令人鼓舞。感谢每一位参与试听和投票的朋友。
 
 | 版本 | 定位与语言 | 模型 | 试听 | 版本指南 |
 |---|---|---|---|---|
-| **Realistic 0.6B** | 拟真感与韵律 · 23 种语言 | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [说明](guides/models/realistic-0.6b_zh.md) |
+| **Realistic Air** | 拟真感与韵律 · 23 种语言 | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [说明](guides/models/realistic-0.6b_zh.md) |
 
-**ONNX：** Realistic 目前暂无 ONNX 制品。
+**ONNX：** Realistic Air 目前暂无 ONNX 制品。
 
 <details>
 <summary><strong>0.6B 详情：语言支持、快速开始与评测</strong></summary>
 
-#### Realistic 0.6B 的语言支持
+#### Realistic Air 的语言支持
 
 | 范围 | 语言 |
 |---|---|
 | Preview 已支持的 11 种 | 粤语、中文、荷兰语、英语、法语、德语、意大利语、日语、韩语、波兰语、西班牙语 |
-| Realistic 新增的 12 种 | 阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语、越南语 |
+| Realistic Air 新增的 12 种 | 阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语、越南语 |
 
 > **说明：** 语言质量存在差异；评测覆盖和正式支持清单并不相同。 [分语言评测](guides/models/realistic-0.6b_zh.md#多语言详细结果)。
 
-#### Realistic 0.6B 快速开始
+#### Realistic Air 快速开始
 
 推荐 Python 3.10+ 和 CUDA GPU；在仓库根目录执行。模型 ID 显式指定，因此不会误用脚本保留的 Preview 默认路径。
 
@@ -66,7 +66,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 python audio8_tts_infer.py \
-  --model Edge0/Audio8-TTS-Realistic-0.6b \
+  --model Edge0/Audio8-TTS-Realistic-Air \
   --text "你好，欢迎使用 Audio8 TTS。" \
   --output outputs/realistic.wav
 ```
@@ -77,9 +77,9 @@ python audio8_tts_infer.py \
 
 #### 0.6B 评测摘要
 
-**Audio8-TTS-Preview** 与 **Audio8-TTS-Realistic**，均为 **0.6B**：
+**Audio8-TTS-Preview** 与 **Audio8-TTS-Realistic-Air**，均为 **0.6B**：
 
-| 基准 | 覆盖 | Preview 错误率 % ↓ | Realistic 错误率 % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| 基准 | 覆盖 | Preview 错误率 % ↓ | Realistic Air 错误率 % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | Seed-TTS | 英语 / 中文 | 1.23 | 1.25 | 0.682 | 0.704 |
 | CV3 | 8 种共有语言 | 4.80 | 4.56 | — | 0.663 |
@@ -90,14 +90,14 @@ python audio8_tts_infer.py \
 
 > **说明：** 数值为各语言的无权重宏平均。Preview 数据来自其[已发布 Model Card](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b#evaluation)，SIM 由百分数换算为 0–1。两个版本分别评测；“—”表示 Preview 卡片未报告对应结果。Seed-TTS 平均英语 WER 与中文 CER，不含 hard Chinese；CV3 共有集为中、英、日、韩、德、法、西、意 8 种语言，9 语言集另含俄语，不含 hard 子集及 13 种扩展语言。MiniMax 平均全部 24 种评测语言，其中部分不在正式支持清单内。
 
-[完整 Realistic 评测与比较说明](guides/models/realistic-0.6b_zh.md#评测) · [Preview 原始评测](guides/models/preview-0.6b_zh.md#评测结果)
+[完整 Realistic Air 评测与比较说明](guides/models/realistic-0.6b_zh.md#评测) · [Preview 原始评测](guides/models/preview-0.6b_zh.md#评测结果)
 
 </details>
 
 <details>
 <summary><strong>上一版本 · Preview 0.6B</strong></summary>
 
-Realistic 在 Preview 基础上继续改进。Preview 用户仍可使用原版模型、**11 种语言**的支持说明、原评测与固定试听页。
+Realistic Air 在 Preview 基础上继续改进。Preview 用户仍可使用原版模型、**11 种语言**的支持说明、原评测与固定试听页。
 
 | 版本 | 模型 | 试听 | 版本指南 | 部署 |
 |---|---|---|---|---|

@@ -1,5 +1,5 @@
 window.__DATA__ = {
-  "title": "Audio8-TTS-Realistic",
+  "title": "Audio8-TTS-Realistic-Air",
   "models": {
     "reference": {
       "label": "Reference",
@@ -10,7 +10,7 @@ window.__DATA__ = {
       "size": "0.6B"
     },
     "realistic": {
-      "label": "Audio8-TTS-Realistic",
+      "label": "Audio8-TTS-Realistic-Air",
       "size": "0.6B"
     },
     "breeze": {

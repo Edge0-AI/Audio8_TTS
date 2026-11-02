@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="350" viewBox="0 0 960 350" role="img" aria-labelledby="title desc">
-  <title id="title">Audio8-TTS-Realistic</title>
+  <title id="title">Audio8-TTS-Realistic-Air</title>
   <desc id="desc">More realistic speech. More languages. Still 0.6B.</desc>
+  <metadata id="audio8-family">family: air / room for more.</metadata>
   <rect width="960" height="350" fill="#ffffff"/>
   <g text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif">
-    <text x="480" y="80" font-size="24" font-weight="500" fill="#6e6e73">Audio8-TTS-Realistic</text>
+    <text x="480" y="80" font-size="24" font-weight="500" fill="#6e6e73">Audio8-TTS-Realistic-Air</text>
     <text x="480" y="148" font-size="50" font-weight="600" letter-spacing="-1.2" fill="#1d1d1f">More realistic speech.</text>
     <text x="480" y="206" font-size="50" font-weight="600" letter-spacing="-1.2" fill="#1d1d1f">More languages.</text>
     <text x="480" y="264" font-size="50" font-weight="600" letter-spacing="-1.2" fill="#1d1d1f">Still 0.6B.</text>

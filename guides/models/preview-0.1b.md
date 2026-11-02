@@ -12,7 +12,7 @@ A compact release for zero-shot voice cloning, using a Falcon-H1 hybrid slow AR 
 - Experimental / multilingual evaluation: German, Spanish, French, Italian, Japanese, and Korean.
 - 0.1B is the release name; the current base model card reports approximately 170M main-model parameters, excluding the separate codec decoder.
 
-See the [0.1B Model Card](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b) for architecture and Seed-TTS/CV3 results. Realistic's 23-language claim and 0.6B results do not apply to this release.
+See the [0.1B Model Card](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b) for architecture and Seed-TTS/CV3 results. Realistic Air's 23-language claim and 0.6B results do not apply to this release.
 
 ## Inference
 

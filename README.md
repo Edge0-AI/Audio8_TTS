@@ -17,6 +17,8 @@
 
 ## Releases
 
+<!-- three seats. two occupied. -->
+
 <a id="family-06b"></a>
 
 <details open>
@@ -24,37 +26,37 @@
 
 <div align="center">
 
-<img src="assets/readme-06b.svg" alt="Audio8-TTS-Realistic — More realistic speech. More languages. Still 0.6B." width="960">
+<img src="assets/readme-06b.svg" alt="Audio8-TTS-Realistic-Air — More realistic speech. More languages. Still 0.6B." width="960">
 
-[![Model](assets/badges/huggingface-realistic-06b.svg)](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b)
+[![Model](assets/badges/huggingface-realistic-06b.svg)](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air)
 [![Demo](assets/badges/demo.svg)](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
 [![arXiv](assets/badges/arxiv.svg)](https://arxiv.org/abs/2610.14776)
 
 </div>
 
-**Audio8-TTS-Realistic-0.6B** builds on Preview with substantially improved speech realism, retaining the same compact 0.6B architecture and zero-shot voice cloning. It supports **23 languages**, adding **12 languages compared with Preview**.
+**Audio8-TTS-Realistic-Air** builds on Preview with substantially improved speech realism, retaining the same compact 0.6B architecture and zero-shot voice cloning. It supports **23 languages**, adding **12 languages compared with Preview**.
 
 | Release | Focus and languages | Model | Listen | Guide |
 |---|---|---|---|---|
-| **Realistic 0.6B** | Realism and prosody · 23 languages | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [Details](guides/models/realistic-0.6b.md) |
+| **Realistic Air** | Realism and prosody · 23 languages | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [Details](guides/models/realistic-0.6b.md) |
 
-**ONNX:** There is currently no Realistic ONNX export.
+**ONNX:** There is currently no Realistic Air ONNX export.
 
 <details>
 <summary><strong>0.6B details: languages, quick start, and evaluation</strong></summary>
 
-#### Realistic 0.6B language support
+#### Realistic Air language support
 
 | Coverage | Languages |
 |---|---|
 | 11 languages supported in Preview | Cantonese, Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Spanish |
-| 12 additions in Realistic | Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, Vietnamese |
+| 12 additions in Realistic Air | Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, Vietnamese |
 
 > **Note:** Quality varies by language; benchmark coverage differs from the supported-language list. [Per-language results](guides/models/realistic-0.6b.md#multilingual-detail).
 
-#### Realistic 0.6B quick start
+#### Realistic Air quick start
 
-Use Python 3.10+ and a CUDA-capable GPU. Run from the repository root. The explicit model ID selects Realistic independently of the scripts' existing Preview default.
+Use Python 3.10+ and a CUDA-capable GPU. Run from the repository root. The explicit model ID selects Realistic Air independently of the scripts' existing Preview default.
 
 ```bash
 git clone https://github.com/Edge0-AI/Audio8_TTS.git
@@ -64,7 +66,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 python audio8_tts_infer.py \
-  --model Edge0/Audio8-TTS-Realistic-0.6b \
+  --model Edge0/Audio8-TTS-Realistic-Air \
   --text "Welcome to Audio8 TTS. It is wonderful to hear from you." \
   --output outputs/realistic.wav
 ```
@@ -77,9 +79,9 @@ For voice cloning, add `--reference-audio reference.wav --reference-text "The ex
 
 Error rates are percentages (lower is better). SIM uses a 0–1 scale (higher is better). Neither directly measures speech realism.
 
-**Audio8-TTS-Preview** and **Audio8-TTS-Realistic**, both **0.6B**:
+**Audio8-TTS-Preview** and **Audio8-TTS-Realistic-Air**, both **0.6B**:
 
-| Benchmark | Coverage | Preview error % ↓ | Realistic error % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| Benchmark | Coverage | Preview error % ↓ | Realistic Air error % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | Seed-TTS | English / Chinese | 1.23 | 1.25 | 0.682 | 0.704 |
 | CV3 | 8 shared languages | 4.80 | 4.56 | — | 0.663 |
@@ -90,14 +92,14 @@ Error rates are percentages (lower is better). SIM uses a 0–1 scale (higher is
 >
 > Seed-TTS averages English WER and Chinese CER, excluding hard Chinese. The shared CV3 subset is Chinese, English, Japanese, Korean, German, French, Spanish, and Italian; the 9-language set also includes Russian. CV3 averages exclude hard subsets and the 13 additional languages. MiniMax averages all 24 evaluated languages, including languages outside the supported list.
 
-[Full Realistic evaluation and comparison notes](guides/models/realistic-0.6b.md#evaluation) · [Original Preview evaluation](guides/models/preview-0.6b.md#evaluation)
+[Full Realistic Air evaluation and comparison notes](guides/models/realistic-0.6b.md#evaluation) · [Original Preview evaluation](guides/models/preview-0.6b.md#evaluation)
 
 </details>
 
 <details>
 <summary><strong>Previous release · Preview 0.6B</strong></summary>
 
-Realistic builds on Preview. The original checkpoint, **11-language** coverage, evaluation, and listening page remain available for Preview users.
+Realistic Air builds on Preview. The original checkpoint, **11-language** coverage, evaluation, and listening page remain available for Preview users.
 
 | Release | Model | Listen | Guide | Deployment |
 |---|---|---|---|---|
