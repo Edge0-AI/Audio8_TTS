@@ -2,7 +2,7 @@
 
 [All releases](../../README.md) · [中文](preview-0.6b_zh.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b) · [Demo](https://edge0-ai.github.io/Audio8_TTS/preview-0.6b/)
 
-This page preserves the original Preview 0.6B language coverage, architecture, and evaluation. Realistic's 23-language coverage and new results belong to that release; Preview keeps its own model and usage instructions.
+This page preserves the original Preview 0.6B language coverage, architecture, and evaluation. Realistic Air's 23-language coverage and new results belong to that release; Preview keeps its own model and usage instructions.
 
 ## Quick start
 

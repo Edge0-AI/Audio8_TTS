@@ -5,7 +5,7 @@
 Run from the repository root and explicitly choose the release to fine-tune.
 
 ```bash
-export MODEL=Edge0/Audio8-TTS-Realistic-0.6b
+export MODEL=Edge0/Audio8-TTS-Realistic-Air
 # Preview 0.6B: export MODEL=Edge0/Audio8-TTS-Preview-0.6b
 # Preview 0.1B: export MODEL=Edge0/Audio8-TTS-Preview-0.1b
 ```
@@ -14,7 +14,7 @@ The trainer adapts the slow loss to the selected model's output head:
 
 | Model | Slow loss targets | Gradient checkpointing |
 | --- | --- | --- |
-| Realistic / Preview 0.6B | Full-vocabulary token IDs, including EOS | Keep disabled; the published model does not support it |
+| Realistic Air / Preview 0.6B | Full-vocabulary token IDs, including EOS | Keep disabled; the published model does not support it |
 | Preview 0.1B | Semantic classes 0–4095 and EOS class 4096; other tokens ignored | Disabled by default; may be enabled explicitly |
 
 This mapping applies only to the slow loss and accuracy. Model inputs keep their

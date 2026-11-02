@@ -2,7 +2,7 @@
 
 [系列首页](../../README_zh.md) · [English](preview-0.6b.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b) · [Demo](https://edge0-ai.github.io/Audio8_TTS/preview-0.6b/)
 
-本页保留原 Preview 0.6B 的语言、架构和评测。新版 Realistic 的 23 种语言与评测仅适用于新版；Preview 的使用方式和下载入口继续保留。
+本页保留原 Preview 0.6B 的语言、架构和评测。新版 Realistic Air 的 23 种语言与评测仅适用于新版；Preview 的使用方式和下载入口继续保留。
 
 ## 快速开始
 

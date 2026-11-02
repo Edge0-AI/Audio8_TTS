@@ -1,8 +1,8 @@
-# Audio8-TTS-Realistic-0.6B
+# Audio8-TTS-Realistic-Air
 
-[系列首页](../../README_zh.md) · [English](realistic-0.6b.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b) · [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
+[系列首页](../../README_zh.md) · [English](realistic-0.6b.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) · [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
 
-Realistic 在 Preview 基础上显著提升语音拟真感，并扩展到 23 种语言。保留同样的 0.6B DualAR 架构、44.1 kHz codec 和零样本音色克隆能力。
+Realistic Air 在 Preview 基础上显著提升语音拟真感，并扩展到 23 种语言。保留同样的 0.6B DualAR 架构、44.1 kHz codec 和零样本音色克隆能力。
 
 [![arXiv](../../assets/badges/arxiv.svg)](https://arxiv.org/abs/2610.14776)
 
@@ -13,7 +13,7 @@ Audio8 也参与了 [TTS Arena](https://tts-agi-tts-arena-v2.hf.space/)，目前
 | 范围 | 语言 |
 |---|---|
 | Preview 已支持的 11 种 | 粤语、中文、荷兰语、英语、法语、德语、意大利语、日语、韩语、波兰语、西班牙语 |
-| Realistic 新增的 12 种 | 阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语、越南语 |
+| Realistic Air 新增的 12 种 | 阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语、越南语 |
 
 > **说明:** 语言质量有差异，详见分语言评测。评测覆盖与正式支持清单不同。
 
@@ -23,14 +23,14 @@ Audio8 也参与了 [TTS Arena](https://tts-agi-tts-arena-v2.hf.space/)，目前
 
 ```bash
 python audio8_tts_infer.py \
-  --model Edge0/Audio8-TTS-Realistic-0.6b \
+  --model Edge0/Audio8-TTS-Realistic-Air \
   --text "你好，欢迎使用 Audio8 TTS。" \
   --output outputs/realistic.wav
 ```
 
 [克隆与批量推理](../inference_zh.md) · [SGLang Omni](../deployment_zh.md) · [SFT](../training_zh.md)
 
-SGLang 使用 0.6B 配置并显式指定 Realistic 模型。当前暂无 Realistic ONNX 制品。
+SGLang 使用 0.6B 配置并显式指定 Realistic Air 模型。当前暂无 Realistic Air ONNX 制品。
 
 ## 模型结构
 
@@ -56,9 +56,9 @@ Checkpoint 内置神经音频 codec，不需要额外下载参考音频编码器
 
 ### 基准摘要
 
-**Audio8-TTS-Preview** 与 **Audio8-TTS-Realistic**，均为 **0.6B**：
+**Audio8-TTS-Preview** 与 **Audio8-TTS-Realistic-Air**，均为 **0.6B**：
 
-| 基准 | 覆盖 | Preview 错误率 % ↓ | Realistic 错误率 % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| 基准 | 覆盖 | Preview 错误率 % ↓ | Realistic Air 错误率 % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | Seed-TTS | 英语 / 中文 | 1.23 | 1.25 | 0.682 | 0.704 |
 | CV3 | 8 种共有语言 | 4.80 | 4.56 | — | 0.663 |
@@ -75,7 +75,7 @@ Checkpoint 内置神经音频 codec，不需要额外下载参考音频编码器
 
 | 模型 | 参数量（B） | Seed-TTS EN/ZH 错误率 ↓ | CV3（9）错误率 ↓ | MiniMax（24）错误率 ↓ |
 |---|---:|---:|---:|---:|
-| **Audio8-TTS-Realistic** | **0.6** | **1.25** | **4.86** | **5.89** |
+| **Audio8-TTS-Realistic-Air** | **0.6** | **1.25** | **4.86** | **5.89** |
 | Qwen3-TTS-12Hz-0.6B | 0.6 | 1.12 | — | — |
 | Qwen3-TTS-1.7B | 1.7 | 1.01 | 7.73 | 27.41 |
 | Higgs Audio v3 | 4 | 1.11 | 4.41 | 2.74 |
@@ -91,7 +91,7 @@ Checkpoint 内置神经音频 codec，不需要额外下载参考音频编码器
 
 ### Seed-TTS 详细结果
 
-| 子集 | 指标 | Preview 错误率 % ↓ | Realistic 错误率 % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| 子集 | 指标 | Preview 错误率 % ↓ | Realistic Air 错误率 % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | English | WER | 1.506 | 1.464 | 0.632 | 0.663 |
 | Chinese | CER | 0.950 | 1.029 | 0.731 | 0.745 |
@@ -169,7 +169,7 @@ Hard Chinese CER 为 **10.665%**，hard English WER 为 **4.736%**；两个 hard
 
 ### 相较 Preview
 
-Realistic 将 Preview 的 **11 种语言**扩展到 **23 种**，新增**阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语和越南语**。
+Realistic Air 将 Preview 的 **11 种语言**扩展到 **23 种**，新增**阿拉伯语、芬兰语、印地语、印度尼西亚语、马来语、挪威语、葡萄牙语、俄语、瑞典语、泰语、土耳其语和越南语**。
 
 ## 限制与负责任使用
 

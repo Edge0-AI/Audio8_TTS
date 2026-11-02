@@ -1,8 +1,8 @@
-# Audio8-TTS-Realistic-0.6B
+# Audio8-TTS-Realistic-Air
 
-[All releases](../../README.md) · [中文](realistic-0.6b_zh.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Realistic-0.6b) · [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
+[All releases](../../README.md) · [中文](realistic-0.6b_zh.md) · [Model](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) · [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/)
 
-Realistic builds on Preview with substantially improved speech realism and 23-language coverage. It retains the same compact 0.6B DualAR architecture, 44.1 kHz codec, and zero-shot voice cloning.
+Realistic Air builds on Preview with substantially improved speech realism and 23-language coverage. It retains the same compact 0.6B DualAR architecture, 44.1 kHz codec, and zero-shot voice cloning.
 
 [![arXiv](../../assets/badges/arxiv.svg)](https://arxiv.org/abs/2610.14776)
 
@@ -13,7 +13,7 @@ Audio8 is also participating in [TTS Arena](https://tts-agi-tts-arena-v2.hf.spac
 | Coverage | Languages |
 |---|---|
 | 11 supported in Preview | Cantonese, Chinese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Spanish |
-| 12 added in Realistic | Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, Vietnamese |
+| 12 added in Realistic Air | Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, Vietnamese |
 
 > **Note:** Language quality varies; see the per-language evaluation below. Benchmark coverage differs from the supported-language list.
 
@@ -23,14 +23,14 @@ Follow the [installation instructions](../inference.md#installation), then run f
 
 ```bash
 python audio8_tts_infer.py \
-  --model Edge0/Audio8-TTS-Realistic-0.6b \
+  --model Edge0/Audio8-TTS-Realistic-Air \
   --text "Welcome to Audio8 TTS." \
   --output outputs/realistic.wav
 ```
 
 [Cloning and batch inference](../inference.md) · [SGLang Omni](../deployment.md) · [SFT](../training.md)
 
-SGLang uses the 0.6B configuration with the Realistic model selected explicitly. No Realistic ONNX export is currently available.
+SGLang uses the 0.6B configuration with the Realistic Air model selected explicitly. No Realistic Air ONNX export is currently available.
 
 ## Architecture
 
@@ -58,9 +58,9 @@ Error rates are percentages (**lower is better**). Speaker similarity (SIM) is o
 
 ### Benchmark summary
 
-**Audio8-TTS-Preview** and **Audio8-TTS-Realistic**, both **0.6B**:
+**Audio8-TTS-Preview** and **Audio8-TTS-Realistic-Air**, both **0.6B**:
 
-| Benchmark | Coverage | Preview error % ↓ | Realistic error % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| Benchmark | Coverage | Preview error % ↓ | Realistic Air error % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | Seed-TTS | English / Chinese | 1.23 | 1.25 | 0.682 | 0.704 |
 | CV3 | 8 shared languages | 4.80 | 4.56 | — | 0.663 |
@@ -77,7 +77,7 @@ The following error rates come from the sources used in our technical report. Di
 
 | Model | Parameters (B) | Seed-TTS EN/ZH error ↓ | CV3 (9) error ↓ | MiniMax (24) error ↓ |
 |---|---:|---:|---:|---:|
-| **Audio8-TTS-Realistic** | **0.6** | **1.25** | **4.86** | **5.89** |
+| **Audio8-TTS-Realistic-Air** | **0.6** | **1.25** | **4.86** | **5.89** |
 | Qwen3-TTS-12Hz-0.6B | 0.6 | 1.12 | — | — |
 | Qwen3-TTS-1.7B | 1.7 | 1.01 | 7.73 | 27.41 |
 | Higgs Audio v3 | 4 | 1.11 | 4.41 | 2.74 |
@@ -93,7 +93,7 @@ The following error rates come from the sources used in our technical report. Di
 
 ### Seed-TTS detail
 
-| Split | Metric | Preview error % ↓ | Realistic error % ↓ | Preview SIM ↑ | Realistic SIM ↑ |
+| Split | Metric | Preview error % ↓ | Realistic Air error % ↓ | Preview SIM ↑ | Realistic Air SIM ↑ |
 |---|---|---:|---:|---:|---:|
 | English | WER | 1.506 | 1.464 | 0.632 | 0.663 |
 | Chinese | CER | 0.950 | 1.029 | 0.731 | 0.745 |
@@ -171,7 +171,7 @@ Each language has 100 evaluation items. Rows marked † are evaluated for comple
 
 ### Compared with Preview
 
-Realistic expands Preview's **11-language** coverage to **23 languages**, adding **Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, and Vietnamese**.
+Realistic Air expands Preview's **11-language** coverage to **23 languages**, adding **Arabic, Finnish, Hindi, Indonesian, Malay, Norwegian, Portuguese, Russian, Swedish, Thai, Turkish, and Vietnamese**.
 
 ## Limitations and responsible use
 

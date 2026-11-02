@@ -4,11 +4,11 @@
 
 | Release | Transformers / CLI | SGLang Omni | ONNX |
 |---|---|---|---|
-| Realistic 0.6B | Supported | 0.6B configuration | No export available |
+| Realistic Air | Supported | 0.6B configuration | No export available |
 | Preview 0.6B | Supported | 0.6B configuration | INT4, onnx_runtime/ |
 | Preview 0.1B | Supported | 0.1B hybrid configuration | INT8, onnx_runtime_0_1b_int8/ |
 
-Realistic uses the 0.6B configuration with its own explicit model ID or snapshot path. ONNX exports belong to the listed release; the Preview ONNX files are not Realistic weights.
+Realistic Air uses the 0.6B configuration with its own explicit model ID or snapshot path. ONNX exports belong to the listed release; the Preview ONNX files are not Realistic Air weights.
 
 ## SGLang Omni Serving
 
@@ -33,7 +33,7 @@ revision instead of the latest `main` branch.
 
 ### Performance
 
-The existing SGLang benchmark and its original test conditions are retained below. Realistic and Preview 0.6B share the same architecture and serving path. These are existing measurements, not a new Realistic benchmark. The separate 0.1B eager hybrid path is described below.
+The existing SGLang benchmark and its original test conditions are retained below. Realistic Air and Preview 0.6B share the same architecture and serving path. These are existing measurements, not a new Realistic Air benchmark. The separate 0.1B eager hybrid path is described below.
 
 Warm single-stream latency was measured on one NVIDIA H20 with BF16 weights,
 CUDA Graph, greedy decoding, and 128 generated frames. The output WAV was
@@ -54,7 +54,7 @@ Python 3.12 and [`uv`](https://docs.astral.sh/uv/).
 
 ```bash
 export SGLANG_OMNI_ROOT=/opt/sglang-omni
-export MODEL_ID=Edge0/Audio8-TTS-Realistic-0.6b
+export MODEL_ID=Edge0/Audio8-TTS-Realistic-Air
 # Preview 0.6B: export MODEL_ID=Edge0/Audio8-TTS-Preview-0.6b
 export MODEL="./model/${MODEL_ID##*/}"
 

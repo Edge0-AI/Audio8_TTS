@@ -12,7 +12,7 @@
 - 实验 / 多语言评测：德语、西班牙语、法语、意大利语、日语、韩语。
 - 发布名为 0.1B；当前基础模型卡标注主模型约 170M 参数，不含独立 codec decoder。
 
-完整架构及 Seed-TTS/CV3 数据见 [0.1B Model Card](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b)。Realistic 的 23 语言和 0.6B 评测不适用于本版。
+完整架构及 Seed-TTS/CV3 数据见 [0.1B Model Card](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b)。Realistic Air 的 23 语言和 0.6B 评测不适用于本版。
 
 ## 推理
 

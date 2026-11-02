@@ -18,12 +18,12 @@ Choose one model ID below and set MODEL. Every following command uses that relea
 
 | Release | MODEL |
 |---|---|
-| Realistic 0.6B | `Edge0/Audio8-TTS-Realistic-0.6b` |
+| Realistic Air | `Edge0/Audio8-TTS-Realistic-Air` |
 | Preview 0.6B | `Edge0/Audio8-TTS-Preview-0.6b` |
 | Preview 0.1B | `Edge0/Audio8-TTS-Preview-0.1b` |
 
 ```bash
-export MODEL=Edge0/Audio8-TTS-Realistic-0.6b
+export MODEL=Edge0/Audio8-TTS-Realistic-Air
 # Preview 0.6B: export MODEL=Edge0/Audio8-TTS-Preview-0.6b
 # Preview 0.1B: export MODEL=Edge0/Audio8-TTS-Preview-0.1b
 ```
