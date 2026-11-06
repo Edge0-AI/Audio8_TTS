@@ -80,6 +80,16 @@ curl http://127.0.0.1:8024/api/voices/register \
 
 Encoder 只在注册期间加载。注册前会释放在线推理模型，完成后自动恢复。
 
+也可以通过 HTTP 删除音色：
+
+```bash
+curl -X DELETE http://127.0.0.1:8024/api/voices/speaker_a
+```
+
+删除会移除音色目录并重载运行时，`GET /api/voices` 立即生效。将
+`ARKTTS_PROTECTED_VOICES` 设为逗号分隔的音色名列表，可保护预置音色不被
+删除（命中时返回 HTTP 403）。
+
 ## 推理
 
 命令行：
