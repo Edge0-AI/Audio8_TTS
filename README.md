@@ -154,4 +154,8 @@ SGLang Omni provides paged attention, dynamic batching, and an OpenAI-compatible
 
 ## License and acknowledgements
 
-The repository code and both 0.6B releases use [Apache License 2.0](LICENSE). The 0.1B checkpoint has its own [model license](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b#license); consult the license packaged with each model/export. See [NOTICE](NOTICE) for attribution. We thank the Fish Audio team for the DualAR architecture used in Fish Audio S2 Pro.
+The repository code and both 0.6B releases use [Apache License 2.0](LICENSE).
+
+The 0.1B base checkpoint and its ONNX INT8 export both use [Audio8 Community License v1.0](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b/blob/main/LICENSE). Commercial use is royalty-free for entities whose annual revenue, including parent companies, subsidiaries, and affiliates, is below US$2,000,000, subject to the license conditions; at or above that threshold, a separate written commercial license is required. See the [0.1B license guide](guides/models/preview-0.1b.md#license) and [ONNX model license](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE) for details.
+
+See [NOTICE](NOTICE) for attribution. We thank the Fish Audio team for the DualAR architecture used in Fish Audio S2 Pro.

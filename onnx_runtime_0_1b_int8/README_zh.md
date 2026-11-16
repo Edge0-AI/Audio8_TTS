@@ -4,6 +4,15 @@
 单独目录中，因为仓库现有的 `onnx_runtime/` 是给 0.6B INT4 图使用的，不能
 直接处理 0.1B Falcon-H1 hybrid 图。
 
+## 许可
+
+运行时代码采用 [Apache License 2.0](../LICENSE)。0.1B ONNX INT8 模型导出与
+原始 0.1B 权重采用相同的 **Audio8 Community License v1.0**。运行时的 Apache 2.0
+许可不适用于模型权重。商业使用条件见 [0.1B 许可说明](../guides/models/preview-0.1b_zh.md#许可)，
+完整条款见 [ONNX 模型附带的 LICENSE](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE)。
+
+## 运行时说明
+
 0.1B Slow AR 每次只接受一个 `[1, 11, 1]` token column，并且要在调用之间保存：
 
 ```text

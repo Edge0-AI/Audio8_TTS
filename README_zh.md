@@ -152,4 +152,8 @@ SGLang Omni 提供 paged attention、动态 batching 和兼容 OpenAI 的语音 
 
 ## 许可与致谢
 
-仓库代码和两个 0.6B 版本采用 [Apache License 2.0](LICENSE)。0.1B 权重采用独立的[模型许可](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b#license)，各模型及导出制品以自身附带的许可为准。归属说明见 [NOTICE](NOTICE)。感谢 Fish Audio 团队公开 Fish Audio S2 Pro 使用的 DualAR 架构。
+仓库代码和两个 0.6B 版本采用 [Apache License 2.0](LICENSE)。
+
+0.1B 基础权重及其 ONNX INT8 导出均采用 [Audio8 Community License v1.0](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b/blob/main/LICENSE)。在遵守许可证条件的前提下，实体年营收（含母公司、子公司及关联公司）低于 200 万美元时可免版税商用；达到或超过该门槛时，须另行取得书面商业许可。详情见 [0.1B 许可说明](guides/models/preview-0.1b_zh.md#许可)和 [ONNX 模型许可证](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE)。
+
+归属说明见 [NOTICE](NOTICE)。感谢 Fish Audio 团队公开 Fish Audio S2 Pro 使用的 DualAR 架构。

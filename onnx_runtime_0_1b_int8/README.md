@@ -5,6 +5,16 @@ This directory is a self-contained runtime for the
 the existing `onnx_runtime/` implementation, which targets the incompatible
 0.6B INT4 graph.
 
+## License
+
+The runtime code uses [Apache License 2.0](../LICENSE). The 0.1B ONNX INT8
+model export uses the same **Audio8 Community License v1.0** as the original
+0.1B checkpoint. The runtime's Apache 2.0 license does not apply to the model
+weights. See the [0.1B license guide](../guides/models/preview-0.1b.md#license)
+for commercial-use conditions and the
+[ONNX model LICENSE](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE)
+for the complete terms.
+
 ## Why this runtime is separate
 
 The 0.1B checkpoint uses a Falcon-H1 hybrid slow graph. The graph accepts one
@@ -49,6 +59,7 @@ The model directory must contain:
 
 ```text
 model/
+|- LICENSE
 |- slow_ar_int8.onnx(.data)
 |- fast_ar_int8.onnx(.data)
 |- codec_decoder_fp16.onnx(.data)

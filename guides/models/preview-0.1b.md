@@ -34,4 +34,12 @@ python audio8_tts_infer.py \
 
 ## License
 
-Repository code uses [Apache License 2.0](../../LICENSE). The 0.1B base checkpoint uses [Audio8 Community License v1.0](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b#license). For separate exports such as ONNX, consult the license included in that download repository. [NOTICE](../../NOTICE).
+Repository code, including the ONNX inference runtime, uses [Apache License 2.0](../../LICENSE).
+
+The 0.1B base checkpoint and its ONNX INT8 export both use **Audio8 Community License v1.0**. The export has not been separately relicensed under Apache 2.0. Read the full license included with the [base checkpoint](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b/blob/main/LICENSE) or the [ONNX export](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE).
+
+- Non-commercial use is free, subject to the license conditions.
+- Commercial use is royalty-free for entities whose annual revenue is **less than US$2,000,000**, subject to the license conditions.
+- At **US$2,000,000 or more**, a separate written commercial license is required before commercial use.
+
+Annual revenue means the entity's total consolidated annual gross revenue for its most recently completed fiscal year, including parent companies, subsidiaries, and affiliates. Redistribution must retain the license and attribution. The English license text is authoritative. See [NOTICE](../../NOTICE) for attribution.

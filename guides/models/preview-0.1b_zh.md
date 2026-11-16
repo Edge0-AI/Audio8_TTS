@@ -34,4 +34,12 @@ python audio8_tts_infer.py \
 
 ## 许可
 
-仓库代码采用 [Apache License 2.0](../../LICENSE). 0.1B 基础权重采用 [Audio8 Community License v1.0](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b#license). ONNX 等独立制品以对应下载仓库附带的许可为准。 [NOTICE](../../NOTICE).
+仓库代码（包括 ONNX 推理运行时）采用 [Apache License 2.0](../../LICENSE)。
+
+0.1B 基础权重及其 ONNX INT8 导出均采用 **Audio8 Community License v1.0**。ONNX 导出未单独改为 Apache 2.0 授权。完整条款见[基础模型许可证](https://huggingface.co/Edge0/Audio8-TTS-Preview-0.1b/blob/main/LICENSE)或 [ONNX 导出附带的许可证](https://huggingface.co/Edge0/audio8-TTS-0.1B-ONNX-INT8/blob/main/LICENSE)。
+
+- 在遵守许可证条件的前提下，非商业使用免费。
+- 在遵守许可证条件的前提下，实体年营收**低于 200 万美元**时可免版税商用。
+- 年营收**达到或超过 200 万美元**时，须在商业使用前另行取得书面商业许可。
+
+年营收指实体最近一个完整财年的合并年度总营收，包含母公司、子公司及关联公司。模型再分发须保留许可证及署名。许可证以英文文本为准。归属说明见 [NOTICE](../../NOTICE)。
