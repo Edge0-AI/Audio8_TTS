@@ -1,0 +1,270 @@
+{
+  "schema": "audio8.llama_cpp_patch.v1",
+  "upstream_repository": "https://github.com/ggml-org/llama.cpp.git",
+  "upstream_commit": "d854d98bae598388ecea1ed84396587e5edc326d",
+  "patch": "patches/audio8.patch",
+  "patch_sha256": "1327778fc9616f081a2f46537d026e8192ae8056e3468ac45dff74113e13e870",
+  "files": {
+    "CMakeLists.txt": {
+      "bytes": 11273,
+      "sha256": "4b123b32be862fab14bf7d5c36c40238f69ba5b7dc284ad88856e8398c4736c7",
+      "kind": "modified"
+    },
+    "ggml/src/ggml-cuda/mmf.cu": {
+      "bytes": 8174,
+      "sha256": "6aa55ef08c983440520f3554c52b0ddc00b06bdae3260ffaa8f34c152e9dae18",
+      "kind": "modified"
+    },
+    "src/llama-arch.cpp": {
+      "bytes": 97981,
+      "sha256": "70cfe7e12e469328b8902af06e7ee666eeb8bc3425e6ca93ddfa1fa47dab6098",
+      "kind": "modified"
+    },
+    "src/llama-arch.h": {
+      "bytes": 27822,
+      "sha256": "ea564eb6a12dd93dbd928412098de2bbf95e33dec644c110df44d7b9ce1f1c5f",
+      "kind": "modified"
+    },
+    "src/llama-context.cpp": {
+      "bytes": 172114,
+      "sha256": "d3f8d761f4247be1a0e10b577028698180a36193fb1f218580fb29892965047f",
+      "kind": "modified"
+    },
+    "src/llama-hparams.h": {
+      "bytes": 21008,
+      "sha256": "efd3806c23e97bd11260613e428c8db6404f713fcbadee549fe0d294e6a936c4",
+      "kind": "modified"
+    },
+    "src/llama-kv-cache.cpp": {
+      "bytes": 99277,
+      "sha256": "42dff73081caceac9d3d5077792086299150239188022d9c049501705ab747bd",
+      "kind": "modified"
+    },
+    "src/llama-model.cpp": {
+      "bytes": 188550,
+      "sha256": "d511e0d08e606a699d48930768f15125970bb5e78ae705a0e3e2ad9c16acf48c",
+      "kind": "modified"
+    },
+    "src/llama-model.h": {
+      "bytes": 40468,
+      "sha256": "d7e6b7549d9b4573e4eeb5cf80001c64bd499abb1344934b1f562309eaee9687",
+      "kind": "modified"
+    },
+    "src/models/llama.cpp": {
+      "bytes": 16510,
+      "sha256": "8b4010d48a495c74bf4499e94cb9981d724ee73b1ebefe1af0d881bbeb80ed97",
+      "kind": "modified"
+    },
+    "tools/CMakeLists.txt": {
+      "bytes": 1203,
+      "sha256": "5a668352ccdfdece842a5c7be726478e677d451b6f245068bb03069f697bb841",
+      "kind": "modified"
+    },
+    "tools/server/server.cpp": {
+      "bytes": 30651,
+      "sha256": "50d818f1cac7b97e014ee8cdf06ff70cd5f13c98641e9955f4a6f2b9076f3c61",
+      "kind": "modified"
+    },
+    "tools/server/CMakeLists.txt": {
+      "bytes": 2048,
+      "sha256": "6b3329b6a18b1739c422203df75acf80b4f65aae88b3fcba734580379a276f1f",
+      "kind": "modified"
+    },
+    "tools/tts/tts.cpp": {
+      "bytes": 7444,
+      "sha256": "9666b3239d4141aebb8e2f9f863a1ef2de6ad7b908979940068f98f6515def2f",
+      "kind": "modified"
+    },
+    "tools/tts/CMakeLists.txt": {
+      "bytes": 419,
+      "sha256": "403cc51fab3917c141f61e484e2b5a05b1324794fe59cc4548016e1a4209ad7e",
+      "kind": "modified"
+    },
+    "tools/audio8/CMakeLists.txt": {
+      "bytes": 5520,
+      "sha256": "e4fc1b2f18213836fee2398481dfc1ef5db38dcb977f3fcc840ed3ccc1c436c1",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-ar-engine.cpp": {
+      "bytes": 15230,
+      "sha256": "d489809219bd6af515a25cc0def63db189002f9e818987e935fb4b9c28b15283",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-ar-engine.h": {
+      "bytes": 1807,
+      "sha256": "3e6f324ab05adfd13f816b85227df4771a67a2649817a99b5a44f72193254314",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-audio-io.cpp": {
+      "bytes": 10506,
+      "sha256": "55f17fef37468c0e0d7a8bd1f890f59d9e6e8b5fedb675ed5f00480272cf5f82",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-audio-io.h": {
+      "bytes": 935,
+      "sha256": "b91ca716b0fb41e9c3d18826ea741df6bfa751c73038fc2e1086be096dbaf1e7",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-decoder-stream.cpp": {
+      "bytes": 8192,
+      "sha256": "1fbd671e3ec9ece4a9e9892cc0a14affd9cc04c4cdc3f65538d381b5bd928a05",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-decoder-stream.h": {
+      "bytes": 2095,
+      "sha256": "6c260065c7b8d125c71b8991d5f4c6cd3a9876dffd078b9f08ae6d16e4cb4967",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-native.cpp": {
+      "bytes": 43674,
+      "sha256": "269c1d134efb18b4b47284d427525b7a43f26e734bda3e77fa38a95f954c3ea0",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-native.h": {
+      "bytes": 1632,
+      "sha256": "b7850adbce392d47e83a6f7d2289256471f5e4454e66ef7769a493a9e5710581",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-post-stream.cpp": {
+      "bytes": 7596,
+      "sha256": "dc8802437ab992d43b6efc6a7290625a38edd90d6fe60041e603e91a42086ecf",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-post-stream.h": {
+      "bytes": 3212,
+      "sha256": "f1b97aeaaea49f4dd4651d1327bd8ef40fb620d5447fe5b8f6e7d0ad59675112",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-stream-state.cpp": {
+      "bytes": 6606,
+      "sha256": "bffe8299471ade4ffb99c2b9c160245f1276e4de3cfecfccafdee2dad5fe9497",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-codec-stream-state.h": {
+      "bytes": 3524,
+      "sha256": "7d2fd082a854c96aa24be69685fd5e5546a821ef6737192f62f3e725ceee2656",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-platform.h": {
+      "bytes": 2835,
+      "sha256": "6ee822b0cd7378628b80826365ded378be34ef0c43c419c525f7ec2c05c017a2",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-sampling.cpp": {
+      "bytes": 9080,
+      "sha256": "c713cf02d4d514e516b8755a861987c2193375da8c0e0fc738649f4a9d7e3818",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-sampling.h": {
+      "bytes": 2646,
+      "sha256": "df55f2e14b0b10f4d7068eb7677614df43566e0006bf6f14bed6322f789b7018",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-text-processor-unicode-data.h": {
+      "bytes": 1633,
+      "sha256": "382796e8d880a020247e4d4a009a55e3e384c6672b22a5256e402095eb2d385e",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-text-processor-unicode.json": {
+      "bytes": 2918,
+      "sha256": "50f995dd0576fb1e4d29f88401b365da4283c55ab0a89ed681a72dcab4ef4dbd",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-text-processor.cmake": {
+      "bytes": 2808,
+      "sha256": "cb232d813dd28c2e9e22af2b2f8d1fbbb87d89d06f9dd65efa5761d7bf883240",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-text-processor.cpp": {
+      "bytes": 8681,
+      "sha256": "b4324e0d7a348d056ed6cbbfc102596d4b442e821b99dbf291fabacb5fd721f8",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-text-processor.h": {
+      "bytes": 1298,
+      "sha256": "9db77ef167e75a94044f30d024e0f22f1bd65016c8413af0e23d53a9e632d7e4",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-tts-server.cpp": {
+      "bytes": 16155,
+      "sha256": "bb7c7efec1664a8172cdd3bada5c02ef1b2f971ef4297165e2ddc1c82ae84a48",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-tts-tool.cpp": {
+      "bytes": 9419,
+      "sha256": "14032ed90ba89ac121872708523cdf889e922bbb3ff0d840a5a513d6d3ae248a",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-tts-tool.h": {
+      "bytes": 397,
+      "sha256": "a0806230add9354f57e80f03e9129abc42a58ad537756c9a52fe72f5dc68788c",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-tts.cpp": {
+      "bytes": 11798,
+      "sha256": "02202bb4f2c801f0cf6294c9e65b6e2220480553911f01ef9c49b06a4171499f",
+      "kind": "added"
+    },
+    "tools/audio8/audio8-tts.h": {
+      "bytes": 2126,
+      "sha256": "8a8c596758143ca9393ada26b5db38ed82653caccf17c8aec3b50b7b2855d502",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/Audio8-Apache-2.0.txt": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/Audio8-NOTICE.txt": {
+      "bytes": 95,
+      "sha256": "819129644b28fb066221d782dd27a6fe1d35f33f46718d4e61570614fb38854e",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/cpp-httplib-MIT.txt": {
+      "bytes": 1075,
+      "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/llama-ggml-MIT.txt": {
+      "bytes": 1078,
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/miniaudio-license.txt": {
+      "bytes": 2601,
+      "sha256": "8ee059f719506d610d0e11e15a36d5c6fd9a55801931b80215f9d26ed019e0d1",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/nlohmann-json-MIT.txt": {
+      "bytes": 1075,
+      "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/upstream-LICENSE-jsonhpp": {
+      "bytes": 1075,
+      "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/vendor-hash-rotate-bits-LICENSE.md": {
+      "bytes": 1088,
+      "sha256": "ca0b44aec101afb6b46f4c39b23369fa06a64fb9c0add37c2689d702156fee55",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/vendor-hash-sha256-LICENSE": {
+      "bytes": 41,
+      "sha256": "b81d0022ca6367918c67b57e9647d3513ee58809fd4b0ef0b3492f1356bced25",
+      "kind": "added"
+    },
+    "tools/audio8/licenses/vendor-hash-xxhash-LICENSE": {
+      "bytes": 1389,
+      "sha256": "6ffedbc0f7878612d2b23589f1ff2ab15633e1df7963a5d9fc750ec5500c7e7a",
+      "kind": "added"
+    },
+    "tools/audio8/source-manifest.json": {
+      "bytes": 5247,
+      "sha256": "0555de5c2235cb0a58e3d1c7a4516dbc08975f507b3f5453cd364582695d580b",
+      "kind": "added"
+    }
+  },
+  "scope": "All patched paths; unchanged upstream files are identified by the Git commit."
+}
