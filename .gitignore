@@ -27,3 +27,9 @@ prepared_data/
 *.pt
 *.ckpt
 pytorch_model*.bin
+
+# Local llama.cpp build inputs and installed runtimes.
+/vendor/llama.cpp/
+/build/audio8-*/
+/stage/audio8-*/
+/converted/

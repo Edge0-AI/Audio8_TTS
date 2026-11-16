@@ -2,13 +2,17 @@
 
 [系列首页](../README_zh.md) · [English](deployment.md) · [安装与推理](inference_zh.md)
 
-| 版本 | Transformers / CLI | SGLang Omni | ONNX |
-|---|---|---|---|
-| Realistic Air | 支持 | 0.6B 配置 | 暂无制品 |
-| Preview 0.6B | 支持 | 0.6B 配置 | INT4，onnx_runtime/ |
-| Preview 0.1B | 支持 | 0.1B hybrid 配置 | INT8，onnx_runtime_0_1b_int8/ |
+| 版本 | Transformers / CLI | SGLang Omni | ONNX | llama.cpp / GGUF |
+|---|---|---|---|---|
+| Realistic Air | 支持 | 0.6B 配置 | 暂无制品 | [原生运行时](llama-cpp_zh.md) |
+| Preview 0.6B | 支持 | 0.6B 配置 | INT4，onnx_runtime/ | 不在本期范围 |
+| Preview 0.1B | 支持 | 0.1B hybrid 配置 | INT8，onnx_runtime_0_1b_int8/ | 不在本期范围 |
 
 Realistic Air 沿用 0.6B 配置，只需显式选择新版模型 ID 或本地目录。ONNX 导出属于表中列出的各自版本，不能将 Preview ONNX 当成 Realistic Air 权重。
+
+## llama.cpp / GGUF 本地部署
+
+[独立运行手册](llama-cpp_zh.md)提供 Realistic Air 的原生本地推理、音色克隆、CLI/HTTP 和流式用法。权重统一放在模型仓库的 `llama-cpp/`，运行时按平台构建，并使用手册提供的 Audio8 适配补丁。
 
 ## SGLang Omni 服务部署
 
@@ -61,7 +65,7 @@ uv venv .venv-sglang --python 3.12
 source .venv-sglang/bin/activate
 uv pip install -v -e "${SGLANG_OMNI_ROOT}"
 
-hf download "${MODEL_ID}" --local-dir "${MODEL}"
+hf download "${MODEL_ID}" --local-dir "${MODEL}" --exclude "llama-cpp/**"
 ./sglang_omni/scripts/install_adapter.sh "${SGLANG_OMNI_ROOT}"
 python3 ./sglang_omni/scripts/verify_install.py --model-path "${MODEL}"
 ```

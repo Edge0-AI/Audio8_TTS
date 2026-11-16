@@ -1,0 +1,26 @@
+{
+  "schema": "audio8.vendored_gguf_source_lock.v1",
+  "llama_cpp_revision": "d854d98bae598388ecea1ed84396587e5edc326d",
+  "scope": "Exact vendored gguf Python package content and package metadata; does not attest runtime core patches.",
+  "files": {
+    "gguf-py/gguf/__init__.py": "3ccfc0104cd7ea88c6028743b7bf3f2c89b5f474425de03a217a6072320d7c2f",
+    "gguf-py/gguf/constants.py": "94149352baf410d7f3a47d2e344f5eccda1c8cd9a2530ac04919223b3a8cd652",
+    "gguf-py/gguf/gguf.py": "f0c0eeedad0911784b52ffed8e162a0eb5ae6d535ce35705bc16196e46597a72",
+    "gguf-py/gguf/gguf_reader.py": "d0ea743200e19d7ef0a4c969edcc4a6dba8e3656a790b217e3bdc7b31170718e",
+    "gguf-py/gguf/gguf_writer.py": "6a2bab1e2d9bbd9411780c547020e7f8760d34be41efa308ad828810529c930b",
+    "gguf-py/gguf/lazy.py": "dbc98e3ee9ef8606df34e9d91f98ab29c2697e6824995f1dd8952938c135ad85",
+    "gguf-py/gguf/metadata.py": "7cedac3b8457271a3f58e5531a7e6958fdecb9ea072f7895ba5d7f6693c9db29",
+    "gguf-py/gguf/quants.py": "5c30d83fda855283a3239e479a26f35ea002ddd7650fcc4d255e6210fc9e72f1",
+    "gguf-py/gguf/scripts/gguf_convert_endian.py": "bd7653fca5115403160263215faa714b805bd2313e94e4ae782179b210dfca34",
+    "gguf-py/gguf/scripts/gguf_dump.py": "d8b8fc28e96d15d8a4d6f05cdff4a747f5a06f31172efee9dfc971998ed0203f",
+    "gguf-py/gguf/scripts/gguf_editor_gui.py": "6e9d70e850268fff5d4108d9ecbc2b4d90e70b61f08e71f7d37ac20916d854bb",
+    "gguf-py/gguf/scripts/gguf_hash.py": "9f277c9338d12a73857a4e54683d7da4d5de01531751f14401267c9289e4197f",
+    "gguf-py/gguf/scripts/gguf_new_metadata.py": "972499d35957b4721b9243828d5547d1c84def8d4e6fc641887c6578bf765255",
+    "gguf-py/gguf/scripts/gguf_set_metadata.py": "c8612a7109428a677ea55976dd5eeed6088934ddef7ef01246a5bc7a6e585b3b",
+    "gguf-py/gguf/tensor_mapping.py": "0ccd4c02127f910109bdb5fd1c16b536ff577dd6a68683055e8f1d167afaf71f",
+    "gguf-py/gguf/utility.py": "da920e2c62166ec9f30e407e9fb35ec29fda671310ffbf0f8ce856b62f1c70d7",
+    "gguf-py/gguf/vocab.py": "0e5fb365641ab1a2c1a84a38c2a0524833e960e42750dcc02b162e5de1356851",
+    "gguf-py/pyproject.toml": "4d4c2db08f33d8020426cf52b268e038de2be6f72d192e948c45587c921807b4",
+    "LICENSE": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+  }
+}

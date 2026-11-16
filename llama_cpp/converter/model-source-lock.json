@@ -1,0 +1,69 @@
+{
+  "schema": "audio8.realistic_source_lock.v1",
+  "model": "Edge0/Audio8-TTS-Realistic-0.6b",
+  "revision": "655a4cd17916bfbec9189f4f46bad2fc2f70a2cf",
+  "files": {
+    "LICENSE": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "NOTICE": {
+      "bytes": 95,
+      "sha256": "819129644b28fb066221d782dd27a6fe1d35f33f46718d4e61570614fb38854e"
+    },
+    "codec.pth": {
+      "bytes": 1349857559,
+      "sha256": "c310505aa11fe2f6cc63b8d3130dc7e77e73227774f5c62575769b1f47a8d048"
+    },
+    "config.json": {
+      "bytes": 1692,
+      "sha256": "a6a2189cb6938b117ad388bad1e4ad786df416170046a0082f07fad28438de0c"
+    },
+    "configuration_arktts.py": {
+      "bytes": 4554,
+      "sha256": "27fa4fd4073ef1983a48919a4562300cace84687335035a9b9a077966e1ac04e"
+    },
+    "generation_config.json": {
+      "bytes": 190,
+      "sha256": "afdc07303d332679ab9b71265c7c1b8519ace777cfa8cac057b30f01f08b5023"
+    },
+    "model.safetensors": {
+      "bytes": 1202342528,
+      "sha256": "f590053e980a45ebcbb2e787cff4f2dead932b2b61e5cf54d05664d9764e12d8"
+    },
+    "modeling_arktts.py": {
+      "bytes": 34737,
+      "sha256": "b320b6c875e6a57afb9745cc98fc72c116d9df6b3bf20d092a5ad3095026911f"
+    },
+    "modeling_arktts_codec.py": {
+      "bytes": 19838,
+      "sha256": "e1d6b0e1ef1e9ad303dc01d45d86229cf7f2e98d06a7b426234a7e4d7e3ede68"
+    },
+    "preprocessor_config.json": {
+      "bytes": 254,
+      "sha256": "e626df9aa1cbe25c4e0999a470c6598d58f172169a5488357b594795d85b5208"
+    },
+    "processing_arktts.py": {
+      "bytes": 11185,
+      "sha256": "eba6ecb6b7f0e221bcd19c5e3fe5978e677faf6b362912ff4febc08c3dc7f9df"
+    },
+    "processor_config.json": {
+      "bytes": 207,
+      "sha256": "4df1f6d2a8ca9d1976b75378847a9de6c3d4db6e34240788b7b9ffa053c00aa2"
+    },
+    "tokenizer.json": {
+      "bytes": 12217872,
+      "sha256": "f24e08099d45a8adf3f52f5f0b03276e433bb9d689bb15fcbcc48ce58744588b"
+    },
+    "tokenizer_config.json": {
+      "bytes": 860832,
+      "sha256": "b8d149343ae425b0da67e6708686aceb51be7815d9792f265fc12ff04d5e9856"
+    }
+  },
+  "rope_payload_sha256": {
+    "slow": "81648383918c4e13cf41037aef69597265d6f46bd44c3cf343451c9b0323a398",
+    "fast": "42e6b27f42ac35e2c089f0d269c1f037730563d992906c7e62b150a0cd9896ab",
+    "codec": "f4f250c96a555fb187026728dc6dd7107afd8d8ed16a727bc3e6a53c45da47bc"
+  },
+  "sidecar_payload_sha256": "004322f2d5593c5ce800bb6a7128a4def9053be556922abec9f001d80bd083d0"
+}

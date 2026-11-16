@@ -1,0 +1,6 @@
+# Direct conversion dependencies; select the appropriate CPU Torch wheel separately.
+# This is not a transitive wheel lock. Do not pip-install gguf/gguf-py.
+torch==2.8.0
+numpy==1.26.4
+safetensors==0.5.3
+PyYAML==6.0.3

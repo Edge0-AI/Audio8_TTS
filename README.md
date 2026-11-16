@@ -11,9 +11,11 @@
 
 [English](README.md) · [中文](README_zh.md)
 
-[0.6B family](#family-06b) · [0.1B family](#family-01b)
+[0.6B family](#family-06b) · [0.1B family](#family-01b) · [llama.cpp / GGUF](#llamacpp-gguf)
 
 </div>
+
+> **2026-11-16 · llama.cpp / GGUF** — Native local inference, voice cloning and streaming for Realistic Air, with one shared F32 model bundle. [Runbook](guides/llama-cpp.md) · [GGUF files](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp).
 
 ## Releases
 
@@ -41,6 +43,8 @@
 | **Realistic Air** | Realism and prosody · 23 languages | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [Details](guides/models/realistic-0.6b.md) |
 
 **ONNX:** There is currently no Realistic Air ONNX export.
+
+**Native deployment:** [llama.cpp / GGUF runbook](guides/llama-cpp.md) · [Shared model folder](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp).
 
 <details>
 <summary><strong>0.6B details: languages, quick start, and evaluation</strong></summary>
@@ -145,6 +149,24 @@ Designed for a smaller deployment footprint, with **Chinese and English as its p
 [Installation and inference](guides/inference.md) · [Supervised fine-tuning](guides/training.md)
 
 The shared tools accept an explicit model ID. Use the quick-start and deployment instructions for your chosen release.
+
+<a id="llamacpp-gguf"></a>
+
+## llama.cpp / GGUF
+
+The native C++ route for Realistic Air targets local applications, desktop deployment and embedded integration, without Python, PyTorch or ONNX Runtime at inference time. It provides speech generation, reference-audio voice cloning, WAV output and HTTP/streaming through the Audio8 runtime linked below.
+
+| Entry | Contents |
+|---|---|
+| [Standalone runbook](guides/llama-cpp.md) | Download, build, generate, serve, stream and troubleshoot |
+| [Implementation and converter](llama_cpp/) | Pinned upstream patch, source verification and F32 export |
+| [HF model folder](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp) | One shared bundle across platforms; four payloads total 3.76 GB |
+
+F32 is the default. For GPU services with dynamic batching, see SGLang Omni below.
+
+<blockquote>
+<sub><strong>Note:</strong> Use CPU on macOS; Metal is experimental. The Windows build instructions have not yet been tested on a Windows machine.</sub>
+</blockquote>
 
 ## SGLang Omni Serving
 

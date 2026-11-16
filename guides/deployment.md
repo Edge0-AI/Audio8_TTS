@@ -2,13 +2,17 @@
 
 [All releases](../README.md) · [中文](deployment_zh.md) · [Installation and inference](inference.md)
 
-| Release | Transformers / CLI | SGLang Omni | ONNX |
-|---|---|---|---|
-| Realistic Air | Supported | 0.6B configuration | No export available |
-| Preview 0.6B | Supported | 0.6B configuration | INT4, onnx_runtime/ |
-| Preview 0.1B | Supported | 0.1B hybrid configuration | INT8, onnx_runtime_0_1b_int8/ |
+| Release | Transformers / CLI | SGLang Omni | ONNX | llama.cpp / GGUF |
+|---|---|---|---|---|
+| Realistic Air | Supported | 0.6B configuration | No export available | [Native runtime](llama-cpp.md) |
+| Preview 0.6B | Supported | 0.6B configuration | INT4, onnx_runtime/ | Outside current scope |
+| Preview 0.1B | Supported | 0.1B hybrid configuration | INT8, onnx_runtime_0_1b_int8/ | Outside current scope |
 
 Realistic Air uses the 0.6B configuration with its own explicit model ID or snapshot path. ONNX exports belong to the listed release; the Preview ONNX files are not Realistic Air weights.
+
+## llama.cpp / GGUF local deployment
+
+The [standalone runbook](llama-cpp.md) covers native local inference, voice cloning, CLI/HTTP and streaming for Realistic Air. One shared model bundle lives under `llama-cpp/` in the model repository. Build the runtime for your platform using the Audio8 patch provided in the guide.
 
 ## SGLang Omni Serving
 
@@ -65,7 +69,7 @@ uv venv .venv-sglang --python 3.12
 source .venv-sglang/bin/activate
 uv pip install -v -e "${SGLANG_OMNI_ROOT}"
 
-hf download "${MODEL_ID}" --local-dir "${MODEL}"
+hf download "${MODEL_ID}" --local-dir "${MODEL}" --exclude "llama-cpp/**"
 ./sglang_omni/scripts/install_adapter.sh "${SGLANG_OMNI_ROOT}"
 python3 ./sglang_omni/scripts/verify_install.py --model-path "${MODEL}"
 ```

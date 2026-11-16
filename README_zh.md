@@ -11,9 +11,11 @@
 
 [English](README.md) · [中文](README_zh.md)
 
-[0.6B family](#family-06b) · [0.1B family](#family-01b)
+[0.6B family](#family-06b) · [0.1B family](#family-01b) · [llama.cpp / GGUF](#llamacpp-gguf)
 
 </div>
+
+> **2026-11-16 · llama.cpp / GGUF** — Realistic Air 新增原生本地推理、音色克隆和流式输出，使用统一的 F32 模型包。[运行手册](guides/llama-cpp_zh.md) · [GGUF 权重](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp)。
 
 ## 模型版本
 
@@ -41,6 +43,8 @@ Audio8 也参与了 [TTS Arena](https://tts-agi-tts-arena-v2.hf.space/)，目前
 | **Realistic Air** | 拟真感与韵律 · 23 种语言 | [HF](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air) | [Demo](https://edge0-ai.github.io/Audio8_TTS/realistic-0.6b/) | [说明](guides/models/realistic-0.6b_zh.md) |
 
 **ONNX：** Realistic Air 目前暂无 ONNX 制品。
+
+**原生部署：** [llama.cpp / GGUF 运行手册](guides/llama-cpp_zh.md) · [统一权重目录](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp)。
 
 <details>
 <summary><strong>0.6B 详情：语言支持、快速开始与评测</strong></summary>
@@ -143,6 +147,24 @@ Realistic Air 在 Preview 基础上继续改进。Preview 用户仍可使用原�
 [安装与推理](guides/inference_zh.md) · [SFT 训练](guides/training_zh.md)
 
 共用工具通过显式模型 ID 选择版本；请使用对应版本的快速开始和部署说明。
+
+<a id="llamacpp-gguf"></a>
+
+## llama.cpp / GGUF
+
+Realistic Air 的原生 C++ 路线面向本地应用、桌面与嵌入式集成，无需 Python、PyTorch 或 ONNX Runtime 即可推理。支持文本转语音、参考音频克隆、WAV 输出和 HTTP/流式接口，使用下方提供的 Audio8 适配运行时。
+
+| 入口 | 内容 |
+|---|---|
+| [独立运行手册](guides/llama-cpp_zh.md) | 下载、构建、语音生成、HTTP、流式与排错 |
+| [实现与转换器](llama_cpp/) | 固定上游补丁、源码校验和 F32 导出入口 |
+| [HF 权重目录](https://huggingface.co/Edge0/Audio8-TTS-Realistic-Air/tree/main/llama-cpp) | 三平台共用一份模型包；四个权重文件约 3.76 GB |
+
+默认使用 F32 权重。需要 GPU 动态 batching 的服务可继续使用下方 SGLang Omni 路线。
+
+<blockquote>
+<sub><strong>Note：</strong>Mac 建议使用 CPU，Metal 暂为实验选项；Windows 构建说明尚未经 Windows 实机测试。</sub>
+</blockquote>
 
 ## SGLang Omni Serving
 
