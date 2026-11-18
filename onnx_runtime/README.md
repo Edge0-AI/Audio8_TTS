@@ -85,6 +85,17 @@ curl http://127.0.0.1:8024/api/voices/register \
 The encoder is loaded only during registration. The online inference runtime
 is released first and restored after registration completes.
 
+Delete a voice profile over HTTP:
+
+```bash
+curl -X DELETE http://127.0.0.1:8024/api/voices/speaker_a
+```
+
+Deletion removes the voice directory and reloads the runtime, so the voice
+disappears from `GET /api/voices` immediately. Set `ARKTTS_PROTECTED_VOICES`
+to a comma-separated list of names to reject deletion of provisioned voices
+with HTTP 403.
+
 ## Inference
 
 Command line:

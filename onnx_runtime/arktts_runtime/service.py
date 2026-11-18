@@ -33,6 +33,12 @@ REGISTRATION_DIR = Path(
         MODEL_DIR / "registration",
     )
 ).resolve()
+# 逗号分隔的受保护音色名单：命中者拒绝删除，用于保护部署方预置的音色
+PROTECTED_VOICES = frozenset(
+    part.strip()
+    for part in os.environ.get("ARKTTS_PROTECTED_VOICES", "").split(",")
+    if part.strip()
+)
 runtime: ArkTtsRuntime | None = None
 registration: VoiceRegistration | None = None
 request_lock = threading.Lock()
@@ -459,6 +465,22 @@ def register_voice(
     except RuntimeError as exc:
         raise HTTPException(503, str(exc)) from exc
     return {"ok": True, "voice": meta}
+
+
+@app.delete("/api/voices/{name}")
+def delete_voice(name: str):
+    if name in PROTECTED_VOICES:
+        raise HTTPException(403, f"voice is protected: {name}")
+    current = require_runtime()
+    try:
+        current.voices.delete(name)
+    except KeyError as exc:
+        raise HTTPException(404, str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    # 音色清单在 runtime 构建时扫描，删除后走与 reload 相同的重建路径立即生效
+    result = reload_runtime()
+    return {"ok": True, "deleted": name, "reload_seconds": result["reload_seconds"]}
 
 
 @app.get("/api/system")

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 import numpy as np
@@ -38,3 +39,11 @@ class VoiceStore:
         if not reference_text:
             raise ValueError(f"voice {name} has no reference_text")
         return codes, meta
+
+    def delete(self, name: str) -> None:
+        if not name or Path(name).name != name:
+            raise ValueError("invalid voice name")
+        voice_dir = self.root / name
+        if not (voice_dir / "meta.json").is_file():
+            raise KeyError(f"voice not found: {name}")
+        shutil.rmtree(voice_dir)
