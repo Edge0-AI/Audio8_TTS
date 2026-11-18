@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import random
 from dataclasses import dataclass
 from pathlib import Path
@@ -47,7 +48,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--failures", type=Path)
     parser.add_argument("--model", default=str(DEFAULT_MODEL))
-    parser.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
+    parser.add_argument("--device", default="auto", help="auto, cpu, mps, cuda, or cuda:N")
     parser.add_argument(
         "--dtype", choices=("auto", "bfloat16", "float16", "float32"), default="auto"
     )
@@ -66,20 +67,42 @@ def parse_args() -> argparse.Namespace:
 
 def resolve_device(value: str) -> torch.device:
     if value == "auto":
-        value = "cuda" if torch.cuda.is_available() else "cpu"
+        if torch.cuda.is_available():
+            value = "cuda"
+        elif (
+            hasattr(torch.backends, "mps") and torch.backends.mps.is_available()
+        ):
+            value = "mps"
+        else:
+            value = "cpu"
     device = torch.device(value)
     if device.type == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("CUDA was requested but is not available")
+    if device.type == "mps" and not torch.backends.mps.is_available():
+        raise RuntimeError("MPS was requested but is not available")
     return device
 
 
 def resolve_dtype(value: str, device: torch.device) -> torch.dtype:
     if value == "auto":
-        return torch.bfloat16 if device.type == "cuda" else torch.float32
+        if device.type == "cuda":
+            return torch.bfloat16
+        return torch.float32  # mps and cpu both default to float32
     dtype = getattr(torch, value)
     if device.type == "cpu" and dtype != torch.float32:
         raise ValueError("CPU inference requires --dtype float32")
     return dtype
+
+
+def make_generator(device: torch.device, seed: int):
+    """Create a seeded sampling generator, tolerating backends without device RNG."""
+    try:
+        return torch.Generator(device=device).manual_seed(seed)
+    except (RuntimeError, ValueError):
+        try:
+            return torch.Generator().manual_seed(seed)
+        except (RuntimeError, ValueError):
+            return None
 
 
 def validate_args(args: argparse.Namespace) -> None:
@@ -166,6 +189,9 @@ def load_items(args: argparse.Namespace) -> list[InferenceItem]:
 
 
 def main() -> None:
+    # Must be set before MPS tensors exist: lets ops the MPS backend does not
+    # implement (e.g. torch.polar in RoPE) run on CPU instead of failing.
+    os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
     args = parse_args()
     validate_args(args)
     device = resolve_device(args.device)
@@ -225,7 +251,9 @@ def main() -> None:
         args.model, trust_remote_code=True, dtype=dtype
     ).eval().to(device)
     sample_rate = int(model.config.codec_sample_rate)
-    generator = torch.Generator(device=device).manual_seed(args.seed)
+    generator = make_generator(device, args.seed)
+    if generator is None:
+        print("[audio8_tts] device RNG unavailable; sampling will be non-deterministic")
 
     def synthesize(batch: list[InferenceItem], max_new_tokens: int) -> dict[str, Any]:
         processor_kwargs: dict[str, Any] = {
@@ -325,6 +353,8 @@ def main() -> None:
                 )
                 if device.type == "cuda":
                     torch.cuda.empty_cache()
+                elif device.type == "mps":
+                    torch.mps.empty_cache()
                 for item in batch:
                     try:
                         records.extend(run_batch([item]))
