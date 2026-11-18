@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import threading
 from collections.abc import Iterator
 from pathlib import Path
@@ -22,6 +23,33 @@ ORT_DTYPES: dict[str, Any] = {
 }
 
 
+def _execution_providers() -> list[Any]:
+    provider = os.getenv("ARKTTS_EXECUTION_PROVIDER", "cpu").strip().lower()
+    if provider == "cpu":
+        return ["CPUExecutionProvider"]
+    if provider != "cuda":
+        raise ValueError(
+            "ARKTTS_EXECUTION_PROVIDER must be either 'cpu' or 'cuda'"
+        )
+
+    available = ort.get_available_providers()
+    if "CUDAExecutionProvider" not in available:
+        raise RuntimeError(
+            "ARKTTS_EXECUTION_PROVIDER=cuda requested CUDAExecutionProvider, "
+            f"but ONNX Runtime only provides: {available}"
+        )
+    try:
+        device_id = int(os.getenv("ARKTTS_CUDA_DEVICE_ID", "0"))
+    except ValueError as exc:
+        raise ValueError("ARKTTS_CUDA_DEVICE_ID must be an integer") from exc
+    if device_id < 0:
+        raise ValueError("ARKTTS_CUDA_DEVICE_ID must be zero or greater")
+    return [
+        ("CUDAExecutionProvider", {"device_id": device_id}),
+        "CPUExecutionProvider",
+    ]
+
+
 def _session(path: Path, threads: int | None = None) -> ort.InferenceSession:
     if not path.is_file():
         raise FileNotFoundError(f"ONNX model was not found: {path}")
@@ -34,7 +62,7 @@ def _session(path: Path, threads: int | None = None) -> ort.InferenceSession:
     return ort.InferenceSession(
         str(path),
         sess_options=options,
-        providers=["CPUExecutionProvider"],
+        providers=_execution_providers(),
     )
 
 
@@ -92,7 +120,7 @@ def _shape(info: ort.NodeArg, fallback: tuple[int, ...]) -> tuple[int, ...]:
 
 
 class ArkTtsRuntime:
-    """CPU runtime for ``Audio8/audio8-TTS-0.1B-ONNX-INT8``.
+    """ONNX runtime for ``Audio8/audio8-TTS-0.1B-ONNX-INT8``.
 
     The 0.1B graph is a Falcon-H1 hybrid export. Its slow graph consumes one
     ``[1, 11, 1]`` column at a time and returns state deltas; it is not
